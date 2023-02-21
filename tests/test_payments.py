@@ -6,12 +6,18 @@ from pages.pricing_page import PricingPage
 
 def test_payments_failed(driver):
     LoginPage(driver).open()
+
+    # Log in to the page
     LoginPage(driver).fill_input_email("vincent-sqa+rekrutacja@bold.com")
     LoginPage(driver).fill_input_password("parmezan6")
     LoginPage(driver).submit_login()
+
+    # Check the resume file
     DashboardPage(driver).load_page()
     assert DashboardPage(driver).is_document_present("CV - TEST")
     DashboardPage(driver).download_resume()
+
+    # Fill payment form
     PricingPage(driver).load_page()
     PricingPage(driver).proceed_pricing()
     PaymentDetailsPage(driver).load_page()
@@ -20,6 +26,8 @@ def test_payments_failed(driver):
     PaymentDetailsPage(driver).fill_card_cvv("123")
     PaymentDetailsPage(driver).fill_card_holder_name("Vincent Testowy")
     PaymentDetailsPage(driver).click_payment_button()
+
+    # Check error message
     expected_url = "https://app.interviewme.pl/cart/error"
     PaymentDetailsPage(driver).wait_for_url(expected_url)
     assert PaymentDetailsPage(driver).get_current_url() == expected_url
