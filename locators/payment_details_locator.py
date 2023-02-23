@@ -13,5 +13,5 @@ class PaymentDetailsLocator:
     INPUT_CARD_CVV = (By.XPATH, "//input[@id='ccCVV']")
     INPUT_CARD_HOLDER_NAME = (By.XPATH, "//input[@name='cardholderName']")
 
-    HEADER_WITH_TEXT = (By.XPATH, "//h3[text()='{}']")
+    HEADER_WITH_TEXT = (By.XPATH, "//*[text()='{}']")
     LINK = (By.XPATH, "//a[@href='{}']")

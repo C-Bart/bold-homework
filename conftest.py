@@ -6,6 +6,6 @@ from selenium.webdriver.chrome.service import Service
 
 @pytest.fixture
 def driver():
-    driver = webdriver.Chrome(service=Service("./chromedriver.exe"))
+    driver = webdriver.Chrome(service=Service("./chromedriver"))
     yield driver
     driver.close()

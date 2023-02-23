@@ -30,7 +30,7 @@ class PaymentDetailsPage(BasePage):
 
     def fill_card_holder_name(self, name):
         element = self.driver.find_element(*self.locator.INPUT_CARD_HOLDER_NAME)
-        element.send_keys(Keys.CONTROL, "a")
+        element.send_keys(Keys.COMMAND, "a")
         element.send_keys(Keys.DELETE)
         element.send_keys(name)
 

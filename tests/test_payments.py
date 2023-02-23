@@ -6,6 +6,7 @@ from pages.pricing_page import PricingPage
 
 def test_payments_failed(driver):
     LoginPage(driver).open()
+    LoginPage(driver).accept_cookies()
 
     # Log in to the page
     LoginPage(driver).fill_input_email("vincent-sqa+rekrutacja@bold.com")
